@@ -6,164 +6,196 @@ TO DO:
 3. make menu choices
 4. make sure the user input is added into an array
 
-
-
-
-let userObject = {};
-let userInput = prompt("Please enter some data");
-userObject.data = userInput;
-
-let userName = {};
-let userInput = prompt("Hello, what's your name?");
-userName.data = userInput;
 */
-
-
 
 // OBJECT
 
-/*
-const accountObject = {
-   name: "firstName",
+// regular function declaration
+function myFunc() {
+   // kod
+ }
+ 
+ // before you had the function keyword first
+ const accountObject = {
+   firstName: "Saskia",
+   expensesArray: [],
+   // empty expenses array
+   incomeArray: [],
+   // empty income array
+   addExpenses: function () {
+     // this is a function declaration as a property, switch the keyword function the name
+     //addIncome.push(2)
+ 
+     // so we want to add something from the prompt
+     //const expens = parseFloat(prompt("Please fill in your expens here"));
+     const expenseDescription = prompt("Please describe your type of expense, for example food, petrol, rent, clothes:");
+ 
+     const expenseAmount = parseFloat(prompt(`Please add the amount you spend on ${expenseDescription}:`));
+ 
+     //[{expensDescription: "one", expenseAmount: 1000}, {expensDescription: "two", expenseAmount: 2000}]
+ 
+     this.expensesArray.push({ expenseDescription, expenseAmount });
+     // check that our function works
+     console.log(this.expensesArray);
+ 
+     // going back to menu
+     menu();
+   },
+   //empty function
+   // will add an expense to the income array
+   // how? with?: ;
+   addIncome: function () {
+      // this is a function declaration as a property, switch the keyword function the name
+     //addIncome.push(2)
+ 
+     // so we want to add something from the prompt
+     //const expens = parseFloat(prompt("Please fill in your expens here"));
+     const incomeDescription = prompt("Please describe your source of income");
+ 
+     const incomeAmount = parseFloat(prompt("Please add the amount"));
+ 
+     //[{expensDescription: "one", expenseAmount: 1000}, {expensDescription: "two", expenseAmount: 2000}]
+ 
+     this.incomeArray.push({ incomeDescription, incomeAmount });
+     // check that our function works
+     console.log(this.incomeArray);
+ 
+     // going back to menu
+     menu();
+   },
+   //empty function
+   // will add an income to the income array
+ 
+   listAllExpenses: function () {
+     // how do we list all elements in an array?
+     // we always have to loop through to see all elements
+     // if we didnt have an object and just plain variables for loop would work fine
+     // but if we have an object a forEach loop is a better approach
+     let message = "";
+     this.expensesArray.forEach(function (expense) {
+       message +=
+         "Expense description: " +
+         expense.expenseDescription +
+         " Expense amount: " +
+         expense.expenseAmount +
+         "\n";
+     });
+     // put the alert cause we only want to show it once
+     // but we want to contain all of your expenses
+     alert(message);
+     menu();
+   },
 
-expensesArray = [],
-// empty expenses array
+   listAllIncomes: function () {
+      // how do we list all elements in an array?
+      // we always have to loop through to see all elements
+      // if we didnt have an object and just plain variables for loop would work fine
+      // but if we have an object a forEach loop is a better approach
+      let message = "";
+      this.incomeArray.forEach(function (income) {
+        message +=
+          "Income description: " +
+         income.incomeDescription +
+          " Income amount: " +
+          income.incomeAmount +
+          "\n";
+      });
+      // put the alert cause we only want to show it once
+      // but we want to contain all of your expenses
+      alert(message);
+      menu();
+    },
 
-incomeArray = [],
-// empty income array
-
-function addExpenses () {
-   addIncome.push(2)
-}
-//empty function
-// will add an expense to the income array
-// how? with?: ;
-
-function addIncome () {
-}
-//empty function
-// will add an income to the income array
-
-function listAllExpenses () {
-}
-//empty function
-
-function getSummary () {
-}
-
-function getSummary (income, expenses) {
-   const resBalance = income - expenses;
-   return resBalance;
-   console.log (resBalance);
-
-
-//empty function
-// Should summarise total balances
-// Should show total income
-// Should show total expenses
-// Should calculate current balance (income - expenses)
-
-*/
-
-
-
-// FUNCTION
-
-/*
-function menu (){
-const choice=parseFloat(prompt("Welcome " + firstName + "! Please type 1, 2, 3 or 4 to select a choice from the menu: \n 1. Add income \n 2. Add expenses \n 3. See all expenses \n 4. See total balance"));
-
-}
-// this is the text displayed in the alert box
-
-menu()
-
-// to call for the function to run
-
-/*
-function getSummary (income, expenses) {
-   const resBalance = income - expenses;
-   return resBalance;
-   console.log (resBalance);
-}
-
-*/
-
-/*
-const firstName = prompt("Hello there, what's your name?");
-console.log(firstName);
-
-function menu () {
-const menu = parseFloat(prompt ("Hello " + firstName + "! Please make a choice from the menu by typing 1, 2, 3 for: \n 1. Add income \n 2. Add expenses \n 3. See total balance"));
-console.log (menu);
-}
-
-incomeArray = [];
-
-if (menu === 1) {
-   const income = parseFloat(prompt ("Please fill in your income here"));
-   console.log (income);
-   
-   function addIncome () {
-   incomeArray.push(income);
-   console.log(incomeArray);
-}
-
-}
-
-if (menu === 2) {
-   const expenses = parseFloat(prompt ("Please fill in your expenses here"));
-   console.log (expenses);
-}
-
-if (menu === 3) {
-   const sum = (income - expenses); 
-   alert(`This is your balance: ${sum}`);
-   console.log (`Your balance is ${sum}`);
-}
-
-else {
-   parseFloat(prompt ("Please fill in your income and expenses first"));
-}
-
-
-// why parseFloat? because it turns/stores the prompt input back as a decimal number
-
-*/
-// this works but it's not a function
+   //empty function
+   getSummary: function () {
+     // 1. remove income and expense parameter not nessecary. Done
+     // 2. create a variabel to store the total amount of all your incomes and do the same for expenses
+     // 3. loop through expense array with forEach and only grab the expenseAmount property
+     // 4. calculate total sum of each expense amount
+     // 5. do the same for income
+     // 6. calculate the totalIncomes - totalExpenses to get the result
+ 
 
 
-const firstName = prompt("Hello there, what's your name?");
-console.log(firstName);
+     // create an array
+//const myNums = [1,2,3,4,5];
+this.incomeArray;
+
+// create a variable for the sum and initialize it
+let sumIncome = 0;
+
+// calculate sum using forEach() method
+this.incomeArray.forEach( num => {
+ sum += num;
+})
+
+console.log(sumIncome); 
+
+this.expensesArray;
+
+// create a variable for the sum and initialize it
+let sumExpenses = 0;
+
+// calculate sum using forEach() method
+this.expensesArray.forEach( num => {
+ sum += num;
+})
+console.log(sumExpenses);
+
+console.log(this.incomeArray);
+console.log(this.expensesArray);
+
+totalBalance = (sumIncome - sumExpenses);
+alert(`You're total balance (income - expenses) is ${totalBalance}`);
 
 
-const menu = parseFloat(prompt ("Hello " + firstName + "! Please make a choice from the menu by typing 1, 2, 3 for: \n 1. Add income \n 2. Add expenses \n 3. See total balance"));
-console.log (menu);
+ 
+     // going back to menu
+     menu();
 
+   },
 
+ };
+ 
 
-if (menu === 1) {
-   const income = parseFloat(prompt ("Please fill in your income here"));
-   console.log (income);
-   prompt(`Thank you, you're income is ${income}. \n Please make a choice from the menu by typing 1, 2, 3 for: \n 1. Add income \n 2. Add expenses \n 3. See total balance`);
+ 
+ // FUNCTION
+ 
+ // why parseFloat? because it turns/stores the prompt input back as a decimal number
+ 
+ accountObject.firstName = prompt("Hello there, what's your name?");
+ 
+ function menu() {
+   const choice = parseFloat(
+     prompt(
+       "Hello " +
+         accountObject.firstName +
+         "! Please make a choice from the menu by typing 1, 2, 3 for: \n 1. Add income \n 2. Add expenses \n 3. See total balance \n 4. List all your expenses \n 5. List all forms of income"
+     )
+   );
+ 
+   if (choice === 1) {
+      accountObject.addIncome();
+     
+   }
+ 
+   if (choice === 2) {
+     accountObject.addExpenses();
+   }
+ 
+   if (choice === 3) {
+     accountObject.getSummary();
+   }
+ 
+   if (choice === 4) {
+     accountObject.listAllExpenses();
+   }
 
-}
-
-if (menu === 2) {
-   const expenses = parseFloat(prompt ("Please fill in your expenses here"));
-   console.log (expenses);
-   prompt(`Thank you, you're expenses are ${expenses}. \n Please make a choice from the menu by typing 1, 2, 3 for: \n 1. Add income \n 2. Add expenses \n 3. See total balance`);
-}
-
-
-
-if (menu === 3) {
-   const sum = (income - expenses); 
-   alert(`This is your balance: ${sum}`);
-   console.log (`Your balance is ${sum}`);
-}
-
-else {
-   parseFloat(prompt ("Please fill in your income and expenses first"));
-}
-
+   if (choice === 5) {
+      accountObject.listAllIncomes();
+    }
+ }
+ 
+ menu();
+ 
+ 
