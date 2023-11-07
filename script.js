@@ -107,15 +107,19 @@ const accountObject = {
 
 // should I use reduce or for each or both?
 // this is reduce
+/*
 let sumIncome = this.incomeArray.reduce(
   (previousValue,currentValue) => previousValue + currentValue,0);
   prompt(`Your total income is ${sumIncome}`);
+*/
 
+// another reduce() method to find the sum of the array
 
+let sumIncome = this.incomeArray.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue
+},0);
 
-
-
-
+console.log(sumIncome)
 
 /*
 
