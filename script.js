@@ -98,68 +98,41 @@ const accountObject = {
 
   //empty function
   getSummary: function () {
-    // 1. remove income and expense parameter not nessecary. Done
+    // 1. remove income and expense parameter not nessecary
     // 2. create a variabel to store the total amount of all your incomes and do the same for expenses
     // 3. loop through expense array with forEach and only grab the expenseAmount property
     // 4. calculate total sum of each expense amount
     // 5. do the same for income
     // 6. calculate the totalIncomes - totalExpenses to get the result
 
-// should I use reduce or for each or both?
-// this is reduce
-/*
-let sumIncome = this.incomeArray.reduce(
-  (previousValue,currentValue) => previousValue + currentValue,0);
-  prompt(`Your total income is ${sumIncome}`);
-*/
+    let totalExpenses = 0;
+    let totalIncome = 0;
+    //let totalBalance= 0;
+    
 
-// another reduce() method to find the sum of the array
+    // expenses
+    this.expensesArray.forEach(function (expense) {
+      totalExpenses = totalExpenses + expense.expenseAmount;
+      // we only the value of the amount property in the object
+      // [{"food", 1000}, {"rent", 5000}, {"gas", 2000}]
+    });
+  //alert(`Your total expenses are ${totalExpenses} `);
 
-let sumIncome = this.incomeArray.reduce((accumulator, currentValue) => {
-  return accumulator + currentValue
-},0);
+    this.incomeArray.forEach(function (income) {
+      totalIncome = totalIncome + income.incomeAmount;
+      alert(`Your total expenses are ${accountObject.currency} ${totalExpenses},- and your total income is ${accountObject.currency} ${totalIncome},-  `);
+    
+      // we only the value of the amount property in the object
+      // [{"food", 1000}, {"rent", 5000}, {"gas", 2000}]
+    });
+    
+    //console.log(totalIncome - totalExpenses);
+    alert(`Your current balance is: \n ${accountObject.currency} ${totalIncome - totalExpenses},- \n Have a nice day!`);
 
-console.log(sumIncome)
-
-/*
-
-// here I tried 'for each' loop
-    // create an array
-//const myNums = [1,2,3,4,5];
-this.incomeArray;
-console.log(incomeArray.length)
-
-// create a variable for the sum and initialize it
-let sumIncome = 0;
-
-// calculate sum using forEach() method
-this.incomeArray.forEach( num => {
-sum += num;
-})
-
-console.log(sumIncome); 
-
-this.expensesArray;
-
-// create a variable for the sum and initialize it
-let sumExpenses = 0;
-
-// calculate sum using forEach() method
-this.expensesArray.forEach( num => {
-sum += num;
-})
-
-totalBalance = (sumIncome - sumExpenses);
-alert(`You're total balance (income - expenses) is ${totalBalance}`);
-
-
-
-    // going back to menu
     menu();
-*/
   },
-
 };
+   
 
 
 
@@ -168,6 +141,7 @@ alert(`You're total balance (income - expenses) is ${totalBalance}`);
 // why parseFloat? because it turns/stores the prompt input back as a decimal number
 
 accountObject.firstName = prompt("Hello there, what's your name?");
+accountObject.currency = prompt("Which currency would you like to use?");
 
 function menu() {
   const choice = parseFloat(
@@ -180,7 +154,6 @@ function menu() {
 
   if (choice === 1) {
      accountObject.addIncome();
-    
   }
 
   if (choice === 2) {
