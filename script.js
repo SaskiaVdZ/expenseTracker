@@ -1,3 +1,6 @@
+// why parseFloat? because it turns/stores the prompt input back as a decimal number
+// why did I use if else statements and not switch?  If else seems to be the easiest way.
+
 // OBJECT
 
 // regular function declaration
@@ -12,28 +15,50 @@ const accountObject = {
   // empty expenses array
   incomeArray: [],
   // empty income array
+
   addExpenses: function () {
     // this is a function declaration as a property, switch the keyword function the name
     //addIncome.push(2)
 
-    // so we want to add something from the prompt
+    //we want to add something from the prompt
     //const expens = parseFloat(prompt("Please fill in your expens here"));
     const expenseDescription = prompt("Please describe your type of expense, for example food, petrol, rent, clothes:");
-
+   
     const expenseAmount = parseFloat(prompt(`Please add the amount you spend on ${expenseDescription}:`));
 
-    //[{expensDescription: "one", expenseAmount: 1000}, {expensDescription: "two", expenseAmount: 2000}]
+    if (isNaN(expenseAmount)){
+      alert("Please fill in a number"); 
+      accountObject.addExpenses();
+    }
 
-    this.expensesArray.push({ expenseDescription, expenseAmount });
-    // check that our function works
-    console.log(this.expensesArray);
-
-    // going back to menu
-    menu();
+    else {
+      this.expensesArray.push({ expenseDescription, expenseAmount });
+    }
+  
+    menu(); 
   },
-  //empty function
-  // will add an expense to the income array
-  // how? with?: ;
+
+   
+     
+  
+
+    //[{expensDescription: "one", expenseAmount: 1000}, {expensDescription: "two", expenseAmount: 2000}]
+    // {object} within curly braces: an object
+
+/*
+    do {
+      expenseAmount = +alert("Please put in a number");
+    } while(expenseAmount === NaN);
+
+
+    addExpenses();
+*/
+
+// going back to menu
+  
+  
+
+
   addIncome: function () {
      // this is a function declaration as a property, switch the keyword function the name
     //addIncome.push(2)
@@ -46,9 +71,17 @@ const accountObject = {
 
     //[{expensDescription: "one", expenseAmount: 1000}, {expensDescription: "two", expenseAmount: 2000}]
 
-    this.incomeArray.push({ incomeDescription, incomeAmount });
+    if (isNaN(incomeAmount)){
+      alert("Please fill in a number"); 
+      accountObject.addIncome();
+    }
+
+    else {
+      this.incomeArray.push({ incomeDescription, incomeAmount });
+    }
+  
     // check that our function works
-    console.log(this.incomeArray);
+    //console.log(this.incomeArray);
 
     // going back to menu
     menu();
@@ -64,10 +97,10 @@ const accountObject = {
     let message = "";
     this.expensesArray.forEach(function (expense) {
       message +=
-        "Expense description: " +
-        expense.expenseDescription +
-        " Expense amount: " +
+        " You've spent " +
         expense.expenseAmount +
+        ",- on " +
+        expense.expenseDescription +
         "\n";
     });
     // put the alert cause we only want to show it once
@@ -84,10 +117,10 @@ const accountObject = {
      let message = "";
      this.incomeArray.forEach(function (income) {
        message +=
-         "Income description: " +
-        income.incomeDescription +
-         " Income amount: " +
+        " You've earned " +
          income.incomeAmount +
+         ",- with your " +
+        income.incomeDescription +
          "\n";
      });
      // put the alert cause we only want to show it once
@@ -120,14 +153,14 @@ const accountObject = {
 
     this.incomeArray.forEach(function (income) {
       totalIncome = totalIncome + income.incomeAmount;
-      alert(`Your total expenses are ${accountObject.currency} ${totalExpenses},- and your total income is ${accountObject.currency} ${totalIncome},-  `);
+      alert(`Your total income is ${totalIncome},- and your total total expenses are ${totalExpenses},- \nYour current balance is: ${totalIncome - totalExpenses},- \nHave a nice day!`);
     
-      // we only the value of the amount property in the object
+      // we only have the value of the amount property in the object
       // [{"food", 1000}, {"rent", 5000}, {"gas", 2000}]
-    });
-    
+   
     //console.log(totalIncome - totalExpenses);
-    alert(`Your current balance is: \n ${accountObject.currency} ${totalIncome - totalExpenses},- \n Have a nice day!`);
+    //alert(`Your current balance is: \n  ${totalIncome - totalExpenses},- \n Have a nice day!`);
+    });
 
     menu();
   },
@@ -140,15 +173,25 @@ const accountObject = {
 
 // why parseFloat? because it turns/stores the prompt input back as a decimal number
 
-accountObject.firstName = prompt("Hello there, what's your name?");
-accountObject.currency = prompt("Which currency would you like to use?");
+/*accountObject.firstName = prompt("Hello there, what's your name?");
+if (accountObject.firstName === "") {
+  alert("Please put in a name");
+}
+
+else if (accountObject.firstName === Number) {
+  alert("Please put in a name");
+}
+
+menu();
+*/
+
 
 function menu() {
   const choice = parseFloat(
     prompt(
       "Hello " +
         accountObject.firstName +
-        "! Please make a choice from the menu by typing 1, 2, 3 for: \n 1. Add income \n 2. Add expenses \n 3. See total balance \n 4. List all your expenses \n 5. List all forms of income"
+        "! Please make a choice from the menu by a number between 1 - 5 for: \n 1. Add income \n 2. Add expenses \n 3. See total balance \n 4. List all your expenses \n 5. List all forms of income"
     )
   );
 
@@ -156,21 +199,25 @@ function menu() {
      accountObject.addIncome();
   }
 
-  if (choice === 2) {
+  else if (choice === 2) {
     accountObject.addExpenses();
   }
 
-  if (choice === 3) {
+  else if (choice === 3) {
     accountObject.getSummary();
   }
 
-  if (choice === 4) {
+  else if (choice === 4) {
     accountObject.listAllExpenses();
   }
 
-  if (choice === 5) {
+  else if (choice === 5) {
      accountObject.listAllIncomes();
    }
+
+  else {(alert("Please choose a number between 1-5"));
+  menu();
+  }
 }
 
 menu();
