@@ -107,10 +107,10 @@ const accountObject = {
     this.incomeArray.forEach(function (income) {
       totalIncome = totalIncome + income.incomeAmount;
 
-      // and then a template literal in an alert with the adding up/taking the expenses from the income amount
-      alert(`Your total income is ${totalIncome},- and your total total expenses are ${totalExpenses},- \nYour current balance is ${totalIncome - totalExpenses},- \nHave a nice day!`);
+      // and then a template literal in an alert with the adding up/taking the expenses from the income amount 
     });
 
+    alert(`Your total income is ${totalIncome},- and your total total expenses are ${totalExpenses},- \nYour current balance is ${totalIncome - totalExpenses},- \nHave a nice day!`);
     menu();
   },
 };
@@ -150,9 +150,10 @@ function menu() {
      accountObject.listAllIncomes();
    }
 
-   else if (choice === 6) {
-    exit();
+   else if (choice === 6) {(alert("You have exited the program, bye!"));
+  
   }
+    
   // the user must make a choice in the form of a number between 1-5
   else {(alert("Please choose a number between 1-6"));
   menu();
