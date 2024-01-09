@@ -3,7 +3,6 @@
 // OBJECT
 
 const accountObject = {
-  firstName: "Saskia",
   expensesArray: [],
   // empty expense array
   incomeArray: [],
@@ -13,7 +12,7 @@ const accountObject = {
     // this is a function declaration as a property, switch the keyword function the name
     //addIncome.push(2)
 
-    //const expens = parseFloat(prompt("Please fill in your expens here"));
+    //const expens = parseFloat(prompt("Please fill in your expense here"));
     const expenseDescription = prompt("Please describe your type of expense, for example food, petrol, rent, clothes:");
   
     const expenseAmount = parseFloat(prompt(`Please add the amount you spend on ${expenseDescription}:`));
@@ -124,9 +123,7 @@ const accountObject = {
 function menu() {
   const choice = parseFloat(
     prompt(
-      "Hello " +
-        accountObject.firstName +
-        "! Please make a choice from the menu by a number between 1 - 5 for: \n 1. Add income \n 2. Add expenses \n 3. See total balance \n 4. List all your expenses \n 5. List all forms of income \n 6. Exit"
+      "Hello! \nPlease make a choice from the menu by typing a number between 1 - 5 for: \n 1. Add income \n 2. Add expenses \n 3. See total balance \n 4. List all your expenses \n 5. List all forms of income \n 6. Exit"
     )
   );
 
