@@ -126,7 +126,7 @@ function menu() {
     prompt(
       "Hello " +
         accountObject.firstName +
-        "! Please make a choice from the menu by a number between 1 - 5 for: \n 1. Add income \n 2. Add expenses \n 3. See total balance \n 4. List all your expenses \n 5. List all forms of income"
+        "! Please make a choice from the menu by a number between 1 - 5 for: \n 1. Add income \n 2. Add expenses \n 3. See total balance \n 4. List all your expenses \n 5. List all forms of income \n 6. Exit"
     )
   );
 
@@ -149,8 +149,12 @@ function menu() {
   else if (choice === 5) {
      accountObject.listAllIncomes();
    }
+
+   else if (choice === 6) {
+    exit();
+  }
   // the user must make a choice in the form of a number between 1-5
-  else {(alert("Please choose a number between 1-5"));
+  else {(alert("Please choose a number between 1-6"));
   menu();
   }
 }
